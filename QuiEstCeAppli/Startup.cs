@@ -62,6 +62,7 @@ namespace QuiEstCeAppli
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "QuiEstCeAppli v1"));
             }
 
+            app.UseCors("MyPolicy");
             app.UseHttpsRedirection();
 
             app.UseRouting();
