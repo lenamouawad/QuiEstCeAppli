@@ -14,7 +14,7 @@ namespace QuiEstCeAppli.Models
         [JsonProperty("question")]
         [BsonRepresentation(BsonType.String)]
         public string question { get; set; }
-        public string reponse { get; set; }
+        public bool reponse { get; set; }
         public bool asked { get; set; }
 
     }

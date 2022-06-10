@@ -75,28 +75,37 @@ namespace QuiEstCeAppli.Repositories
             return this.personnages.Find(h => h.isWizard == isWizard).ToList().Select(h => h.Id).ToList();
         }
 
-        //Retourne les id des personnages ayant des yeux avec une couleur spécifique
+        //Retourne les id des personnages ayant des yeux pas d'une couleur spécifique
         public List<String> GetAllPersonnageWithCouleurYeux(string couleurYeux)
         {
-            return this.personnages.Find(h => h.couleurYeux == couleurYeux).ToList().Select(h => h.Id).ToList();
+            return this.personnages.Find(h => h.couleurYeux != couleurYeux).ToList().Select(h => h.Id).ToList();
         }
 
-        //Retourne les id des personnages ayant des cheveux avec une couleur spécifique
-        public List<String> GetAllPersonnageWithCheveux(string couleurCheveux)
+        
+        public List<String> GetAllPersonnageWithCheveux(bool cheveuxNoirMarron)
         {
-            return this.personnages.Find(h => h.couleurCheveux == couleurCheveux).ToList().Select(h => h.Id).ToList();
+            if (cheveuxNoirMarron)
+            {
+                return this.personnages.Find(h => h.couleurCheveux == "Marron" && h.couleurCheveux == "Noir").ToList().Select(h => h.Id).ToList();
+
+            }
+            else
+            {
+                return this.personnages.Find(h => h.couleurCheveux != "Marron" && h.couleurCheveux != "Noir").ToList().Select(h => h.Id).ToList();
+
+            }
         }
 
         //Retourne les id des personnages d'une certaine espèce
         public List<String> GetAllPersonnageEspece(string espece)
         {
-            return this.personnages.Find(h => h.espece == espece).ToList().Select(h => h.Id).ToList();
+            return this.personnages.Find(h => h.espece != espece).ToList().Select(h => h.Id).ToList();
         }
 
         //Retourne les id des personnages d'un certain genre
         public List<String> GetAllPersonnageGenre(string genre)
         {
-            return this.personnages.Find(h => h.genre == genre).ToList().Select(h => h.Id).ToList();
+            return this.personnages.Find(h => h.genre != genre).ToList().Select(h => h.Id).ToList();
         }
 
     }

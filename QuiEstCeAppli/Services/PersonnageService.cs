@@ -92,9 +92,9 @@ namespace QuiEstCeAppli.Services
             return this.repository.GetAllPersonnageWithCouleurYeux(couleurYeux);
         }
 
-        public List<String> GetAllPersonnageWithCheveux(string couleurCheveux)
+        public List<String> GetAllPersonnageWithCheveux(bool cheveuxNoirsMarrons)
         {
-            return this.repository.GetAllPersonnageWithCheveux(couleurCheveux);
+            return this.repository.GetAllPersonnageWithCheveux(cheveuxNoirsMarrons);
         }
 
         public List<String> GetAllPersonnageEspece(string espece)

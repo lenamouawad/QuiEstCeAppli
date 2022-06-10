@@ -152,12 +152,12 @@ namespace QuiEstCeAppli.Controllers
             }
         }
 
-        [HttpGet("PersonnageCouleurCheveux/{couleurCheveux}")]
-        public IActionResult GetAllPersonnageWithCheveux(string couleurCheveux)
+        [HttpGet("PersonnageCouleurCheveux/{cheveuxMarronsNoirs}")]
+        public IActionResult GetAllPersonnageWithCheveux(bool cheveuxMarronsNoirs)
         {
             try
             {
-                return Ok(this.service.GetAllPersonnageWithCheveux(couleurCheveux));
+                return Ok(this.service.GetAllPersonnageWithCheveux(cheveuxMarronsNoirs));
             }
             catch (NotFoundException e)
             {
