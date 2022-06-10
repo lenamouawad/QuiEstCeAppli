@@ -71,5 +71,10 @@ namespace QuiEstCeAppli.Services
             }
             return personnage;
         }
+
+        public List<String> GetAllChapeau(bool hasChapeau)
+        {
+            return this.repository.GetAllChapeau(hasChapeau);
+        }
     }
-}
+    }

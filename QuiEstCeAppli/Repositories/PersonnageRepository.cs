@@ -50,5 +50,14 @@ namespace QuiEstCeAppli.Repositories
         {
             return this.personnages.Find(personnage => personnage.Id == id).FirstOrDefault();
         }
+
+        // Si notre personnage a un chapêqu
+        // La réponse a la question est ce qu'il a un chapeau est oui
+        // Donc on elimine les personnage qui n'ont pas de chapeau
+        public List<String> GetAllChapeau(bool hasChapeau) {
+
+            return this.personnages.Find(h => h.hasChapeau == hasChapeau).ToList().Select(h => h.Id).ToList();
+
+        }
     }
 }

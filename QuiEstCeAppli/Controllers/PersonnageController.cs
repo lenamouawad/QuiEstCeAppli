@@ -99,5 +99,18 @@ namespace QuiEstCeAppli.Controllers
                 return NotFound(e.Message);
             }
         }
+
+        [HttpGet("HasChapeau/{hasChapeau}")]
+        public IActionResult GetAllChapeau(bool hasChapeau)
+        {
+            try
+            {
+                return Ok(this.service.GetAllChapeau(hasChapeau));
+            }
+            catch (NotFoundException e)
+            {
+                return NotFound(e.Message);
+            }
+        }
     }
 }
