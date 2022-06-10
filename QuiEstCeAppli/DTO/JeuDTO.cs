@@ -11,17 +11,15 @@ namespace QuiEstCeAppli.DTO
         
         public string selectedPersoId { get; set; }
         public List<QuestionReponse> questionsReponses { get; set; }
-        public List<string> personnagesAEliminerId { get; set; }
 
         public JeuDTO()
         {
         }
 
-        public JeuDTO(string selectedPersoId, List<QuestionReponse> questionsReponses, List<string> personnagesAEliminerId)
+        public JeuDTO(string selectedPersoId, List<QuestionReponse> questionsReponses)
         {
             this.selectedPersoId = selectedPersoId;
             this.questionsReponses = questionsReponses;
-            this.personnagesAEliminerId = personnagesAEliminerId;
         }
     }
 

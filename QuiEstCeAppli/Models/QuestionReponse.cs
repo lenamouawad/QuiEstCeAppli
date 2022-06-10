@@ -16,6 +16,8 @@ namespace QuiEstCeAppli.Models
         public string question { get; set; }
         public bool reponse { get; set; }
         public bool asked { get; set; }
+        public List<string> personnagesIdAEliminer { get; set; }
+
 
     }
 }

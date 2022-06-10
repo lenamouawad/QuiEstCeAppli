@@ -30,11 +30,12 @@ namespace QuiEstCeAppli.Services
             Random random = new Random();
             int index = random.Next(personnages.Count);
             selectedPersonnage.Id = (personnages[index].Id);
-
-            List<String> personnagesAEliminerIds = new List<String>();
+            selectedPersonnage = persoService.GetPersonnageById(selectedPersonnage.Id);
 
             // Set answers to all questions
             List<QuestionReponse> allQuestionsReponses = questionsService.GetAllQuestionReponses();
+            List<String> personnagesAEliminerIds = new List<String>();
+
             foreach (QuestionReponse question in allQuestionsReponses)
             {      
                 // C'est pas bien de faire comme ca mais on a pas le temps de reflechir... :(
@@ -42,42 +43,51 @@ namespace QuiEstCeAppli.Services
                 {
                     question.reponse = selectedPersonnage.hasChapeau;
                     personnagesAEliminerIds = persoService.GetAllChapeau(!selectedPersonnage.hasChapeau);
+                    question.personnagesIdAEliminer = personnagesAEliminerIds;
+                    questionsService.UpdateQuestionReponse(question.Id, question);
                 }
                 if (question.question.Contains("lunettes"))
                 {
                     question.reponse = selectedPersonnage.hasLunettes;
                     personnagesAEliminerIds = persoService.GetAllLunettes(!selectedPersonnage.hasLunettes);
+                    question.personnagesIdAEliminer = personnagesAEliminerIds;
+                    questionsService.UpdateQuestionReponse(question.Id, question);
 
                 }
                 if (question.question.Contains("sorcier"))
                 {
                     question.reponse = selectedPersonnage.isWizard;
                     personnagesAEliminerIds = persoService.GetAllWizards(!selectedPersonnage.isWizard);
-
+                    question.personnagesIdAEliminer = personnagesAEliminerIds;
+                    questionsService.UpdateQuestionReponse(question.Id, question);
                 }
                 if (question.question.Contains("yeux"))
                 {
                     question.reponse = selectedPersonnage.couleurYeux == "bleu";
                     personnagesAEliminerIds = persoService.GetAllPersonnageAvecCouleurYeux(selectedPersonnage.couleurYeux);
-
+                    question.personnagesIdAEliminer = personnagesAEliminerIds;
+                    questionsService.UpdateQuestionReponse(question.Id, question);
                 }
                 if (question.question.Contains("cheveux"))
                 {
                     question.reponse = selectedPersonnage.couleurCheveux == "Noir" || selectedPersonnage.couleurCheveux == "Marron";
                     personnagesAEliminerIds = persoService.GetAllPersonnageWithCheveux(!question.reponse);
-
+                    question.personnagesIdAEliminer = personnagesAEliminerIds;
+                    questionsService.UpdateQuestionReponse(question.Id, question);
                 }
                 if (question.question.Contains("humain"))
                 {
                     question.reponse = selectedPersonnage.espece == "Humain";
                     personnagesAEliminerIds = persoService.GetAllPersonnageEspece(selectedPersonnage.espece);
-
+                    question.personnagesIdAEliminer = personnagesAEliminerIds;
+                    questionsService.UpdateQuestionReponse(question.Id, question);
                 }
                 if (question.question.Contains("femme"))
                 {
                     question.reponse = selectedPersonnage.genre == "Femme";
                     personnagesAEliminerIds = persoService.GetAllPersonnageGenre(selectedPersonnage.genre);
-
+                    question.personnagesIdAEliminer = personnagesAEliminerIds;
+                    questionsService.UpdateQuestionReponse(question.Id, question);
                 }
             }
 
@@ -86,11 +96,8 @@ namespace QuiEstCeAppli.Services
             JeuDTO jeu = new JeuDTO();
             jeu.selectedPersoId = selectedPersonnage.Id;
             jeu.questionsReponses = allQuestionsReponses;
-            jeu.personnagesAEliminerId = personnagesAEliminerIds;
 
             return jeu;
-
-            // Return id selected person + questions reponses boolen ?
 
         }
 

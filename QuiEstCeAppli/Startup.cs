@@ -44,6 +44,10 @@ namespace QuiEstCeAppli
             services.AddSingleton<QuestionReponseRepository, QuestionReponseRepository>();
             services.AddSingleton<QuestionReponseService, QuestionReponseService>();
 
+            // Question Reponse
+            services.AddSingleton<JeuRepository, JeuRepository>();
+            services.AddSingleton<JeuService, JeuService>();
+
             // Controllers
             services.AddControllers();
             services.AddSwaggerGen(c =>
