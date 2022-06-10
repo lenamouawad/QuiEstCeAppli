@@ -51,13 +51,53 @@ namespace QuiEstCeAppli.Repositories
             return this.personnages.Find(personnage => personnage.Id == id).FirstOrDefault();
         }
 
-        // Si notre personnage a un chapêqu
+        // Si notre personnage a un chapeau
         // La réponse a la question est ce qu'il a un chapeau est oui
         // Donc on elimine les personnage qui n'ont pas de chapeau
         public List<String> GetAllChapeau(bool hasChapeau) {
 
             return this.personnages.Find(h => h.hasChapeau == hasChapeau).ToList().Select(h => h.Id).ToList();
-
         }
+
+        // Si notre personnage a des lunettes
+        // La réponse a la question est ce qu'il a des lunettes est oui
+        // Donc on elimine les personnage qui n'ont pas de lunettes
+        public List<String> GetAllLunettes(bool hasLunettes)
+        {
+            return this.personnages.Find(h => h.hasLunettes == hasLunettes).ToList().Select(h => h.Id).ToList();
+        }
+
+        // Si notre personnage est un sorcier
+        // La réponse a la question est ce c'est un sorcier est oui
+        // Donc on elimine les personnage qui ne sont pas des sorciers
+        public List<String> GetAllWizard(bool isWizard)
+        {
+            return this.personnages.Find(h => h.isWizard == isWizard).ToList().Select(h => h.Id).ToList();
+        }
+
+        //Retourne les id des personnages ayant des yeux avec une couleur spécifique
+        public List<String> GetAllPersonnageWithCouleurYeux(string couleurYeux)
+        {
+            return this.personnages.Find(h => h.couleurYeux == couleurYeux).ToList().Select(h => h.Id).ToList();
+        }
+
+        //Retourne les id des personnages ayant des cheveux avec une couleur spécifique
+        public List<String> GetAllPersonnageWithCheveux(string couleurCheveux)
+        {
+            return this.personnages.Find(h => h.couleurCheveux == couleurCheveux).ToList().Select(h => h.Id).ToList();
+        }
+
+        //Retourne les id des personnages d'une certaine espèce
+        public List<String> GetAllPersonnageEspece(string espece)
+        {
+            return this.personnages.Find(h => h.espece == espece).ToList().Select(h => h.Id).ToList();
+        }
+
+        //Retourne les id des personnages d'un certain genre
+        public List<String> GetAllPersonnageGenre(string genre)
+        {
+            return this.personnages.Find(h => h.genre == genre).ToList().Select(h => h.Id).ToList();
+        }
+
     }
 }

@@ -112,5 +112,83 @@ namespace QuiEstCeAppli.Controllers
                 return NotFound(e.Message);
             }
         }
+
+        [HttpGet("HasLunettes/{hasLunettes}")]
+        public IActionResult GetAllLunettes(bool hasLunettes)
+        {
+            try
+            {
+                return Ok(this.service.GetAllLunettes(hasLunettes));
+            }
+            catch (NotFoundException e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+
+        [HttpGet("IsWizard/{isWizard}")]
+        public IActionResult GetAllWizard(bool isWizard)
+        {
+            try
+            {
+                return Ok(this.service.GetAllWizards(isWizard));
+            }
+            catch (NotFoundException e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+
+        [HttpGet("PersonnageCouleurYeux/{couleurYeux}")]
+        public IActionResult GetAllPersonnageAvecCouleurYeux(string couleurYeux)
+        {
+            try
+            {
+                return Ok(this.service.GetAllPersonnageAvecCouleurYeux(couleurYeux));
+            }
+            catch (NotFoundException e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+
+        [HttpGet("PersonnageCouleurCheveux/{couleurCheveux}")]
+        public IActionResult GetAllPersonnageWithCheveux(string couleurCheveux)
+        {
+            try
+            {
+                return Ok(this.service.GetAllPersonnageWithCheveux(couleurCheveux));
+            }
+            catch (NotFoundException e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+
+        [HttpGet("PersonnageEspece/{espece}")]
+        public IActionResult GetAllPersonnageEspece(string espece)
+        {
+            try
+            {
+                return Ok(this.service.GetAllPersonnageEspece(espece));
+            }
+            catch (NotFoundException e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+
+        [HttpGet("PersonnageGenre/{genre}")]
+        public IActionResult GetAllPersonnageGenre(string genre)
+        {
+            try
+            {
+                return Ok(this.service.GetAllPersonnageGenre(genre));
+            }
+            catch (NotFoundException e)
+            {
+                return NotFound(e.Message);
+            }
+        }
     }
 }

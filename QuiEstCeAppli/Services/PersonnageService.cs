@@ -76,5 +76,35 @@ namespace QuiEstCeAppli.Services
         {
             return this.repository.GetAllChapeau(hasChapeau);
         }
+
+        public List<String> GetAllLunettes(bool hasLunettes)
+        {
+            return this.repository.GetAllLunettes(hasLunettes);
+        }
+
+        public List<String> GetAllWizards(bool isWizard)
+        {
+            return this.repository.GetAllWizard(isWizard);
+        }
+
+        public List<String> GetAllPersonnageAvecCouleurYeux(string couleurYeux)
+        {
+            return this.repository.GetAllPersonnageWithCouleurYeux(couleurYeux);
+        }
+
+        public List<String> GetAllPersonnageWithCheveux(string couleurCheveux)
+        {
+            return this.repository.GetAllPersonnageWithCheveux(couleurCheveux);
+        }
+
+        public List<String> GetAllPersonnageEspece(string espece)
+        {
+            return this.repository.GetAllPersonnageEspece(espece);
+        }
+
+        public List<String> GetAllPersonnageGenre(string genre)
+        {
+            return this.repository.GetAllPersonnageGenre(genre);
+        }
     }
-    }
+}
